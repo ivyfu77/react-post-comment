@@ -1,5 +1,58 @@
-body {
+* {
   margin: 0;
   padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+body {
   font-family: sans-serif;
+}
+
+/* Header */
+.App-header {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  background-color: #eef5e6;
+  padding: 10px;
+  border: solid 1px rgba(143, 204, 143, 0.21);
+}
+
+.App-header h2 {
+  font-style: italic;
+  color: darkseagreen;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.App-header img {
+  //animation: App-logo-spin infinite 20s linear;
+  height: 65px
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* NavSide */
+.app-container {
+  display: flex;
+  height: calc(100vh - 85px);
+}
+.nav-side {
+  width: 180px;
+  background-color: rgb(238, 245, 230);
+  padding: 10px
+}
+.nav-side h3 {
+  font-weight: normal;
+  color: darkseagreen;
+}
+.app-contnent {
+  font-size: large;
+  width: calc(100% - 220px);
+  padding: 10px;
 }
