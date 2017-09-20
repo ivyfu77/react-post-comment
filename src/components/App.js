@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { fetchPosts } from '../actions';
 import Header from './header';
 import NavSide from './navside';
-import { fetchData } from '../utils/api';
 import Posts from './posts';
 
 class App extends Component {
@@ -11,20 +12,21 @@ class App extends Component {
   }
 
   componentWillMount() {
-    fetchData('posts')
-      .then((data) => {
-        this.setState({ posts: data })
-      })
+    const { fetchAllPosts } = this.props;
+
+    fetchAllPosts();
   }
 
   render() {
+    const { posts } = this.props;
+
     return (
       <div className="App">
         <Header />
         <div className="app-container">
           <NavSide />
           <div className="app-contnent">
-            <Posts posts={this.state.posts} />
+            <Posts posts={posts} />
           </div>
         </div>
       </div>
@@ -32,4 +34,16 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps (state, ownProps) {
+  return ({
+    posts: state.postStore.posts
+  })
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchAllPosts: () => dispatch(fetchPosts())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

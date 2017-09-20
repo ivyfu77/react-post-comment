@@ -8,7 +8,7 @@ export function fetchData (name) {
               BACK_END_PORT + "/" + 
               name;
 
-  return fetch(url, { headers: { 'Authorization': 'whatever-you-want' } })
+  return fetch(url, { headers: { 'Authorization': APP_TOKEN } })
     .then((res) => res.json())
     .then((data) => data)
 }

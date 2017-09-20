@@ -1,17 +1,20 @@
-import { ADD_POST, REMOVE_POST } from '../actions';
+import { ADD_POST, REMOVE_POST, FETCH_POSTS } from '../actions';
 import { combineReducers } from 'redux';
 
-const post = ( state = {msg: null}, action ) => { 
+const postStore = ( state = { posts: [] }, action ) => { 
     switch (action.type) {
         case ADD_POST:
             return {
                 ...state, 
-                msg: action.msg
             }
         case REMOVE_POST:
             return {
                 ...state,
-                msg: action.msg
+            }
+        case FETCH_POSTS:
+            return {
+                ...state,
+                posts: action.posts
             }
         default:
             return state
@@ -19,5 +22,5 @@ const post = ( state = {msg: null}, action ) => {
 };
 
 export default combineReducers({
-  post
+  postStore
 });

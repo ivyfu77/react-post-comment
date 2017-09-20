@@ -4,7 +4,7 @@ class NavSide extends Component {
   render() {
     return (
       <div className="nav-side">
-        <a href="#"><h3>All</h3></a>
+        <a href="/"><h3>All</h3></a>
       </div>
     );
   }

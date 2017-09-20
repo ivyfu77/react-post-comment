@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import Post from './post';
+import { connect } from "react-redux";
 
 class Posts extends Component {
   render() {
     const { posts } = this.props;
     const postList = posts.map((post) => (
-      <div>
-        { post.title }
-      </div>
+      <Post key={ post.id } post={ post } />
     ));
     return (
       <div className="">
@@ -17,4 +17,4 @@ class Posts extends Component {
   }
 }
 
-export default Posts;
+export default connect()(Posts);
