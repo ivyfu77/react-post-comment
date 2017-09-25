@@ -1,4 +1,4 @@
-import { ADD_POST, REMOVE_POST, FETCH_POSTS } from '../actions';
+import { ADD_POST, REMOVE_POST, FETCH_POSTS, FETCH_CATEGORIES } from '../actions';
 import { combineReducers } from 'redux';
 
 const postStore = ( state = { posts: [] }, action ) => { 
@@ -21,6 +21,19 @@ const postStore = ( state = { posts: [] }, action ) => {
     }
 };
 
+const categoryStore = ( state = { categories: [] }, action ) => {
+    switch (action.type) {
+        case FETCH_CATEGORIES:
+            return {
+                ...state,
+                categories: action.categories
+            }
+        default:
+            return state
+    }
+};
+
 export default combineReducers({
-  postStore
+  postStore,
+  categoryStore
 });

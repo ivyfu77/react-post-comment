@@ -3,6 +3,7 @@ import { fetchData } from '../utils/api';
 export const ADD_POST = 'ADD_POST';
 export const REMOVE_POST = 'REMOVE_POST';
 export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 
 export function addPost () {
   return {
@@ -25,6 +26,18 @@ export function fetchPosts () {
         dispatch({ 
           type: FETCH_POSTS,
           posts: data
+        });
+      })
+  }
+}
+
+export function fetchCategories () {
+  return (dispatch) => {
+    fetchData('categories')
+      .then((data) => {
+        dispatch({ 
+          type: FETCH_CATEGORIES,
+          categories: data.categories
         });
       })
   }

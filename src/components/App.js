@@ -7,10 +7,6 @@ import Posts from './posts';
 
 class App extends Component {
 
-  state = {
-    posts: []
-  }
-
   componentWillMount() {
     const { fetchAllPosts } = this.props;
 
