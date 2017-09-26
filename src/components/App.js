@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from "react-redux";
 import { fetchPosts } from '../actions';
 import Header from './header';
@@ -18,22 +18,22 @@ class App extends Component {
     const { posts } = this.props;
 
     return (
+      <BrowserRouter>
       <div className="App">
         <Header />
         <div className="app-container">
           <NavSide />
           <div className="app-contnent">
-            <Switch>
-              <Route exact path="/" render={ () => (
-                <Posts posts={posts} />
-              )} />
-              <Route exact path="/react" render={ () => (
-                <h3>React Posts</h3>
-              )} />
-            </Switch>
+            <Route exact path="/" render={ () => (
+              <Posts posts={posts} />
+            )} />
+            <Route path="/react" render={ () => (
+              <h3>React Posts</h3>
+            )} />
           </div>
         </div>
       </div>
+      </BrowserRouter>
     );
   }
 }
