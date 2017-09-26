@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { fetchCategories } from '../actions';
 
@@ -15,13 +16,13 @@ class NavSide extends Component {
     let categoryList = "";
     categoryList = categories.map((category) => {
       return (
-        <a key={category.name} href={category.path}><h3>{category.name}</h3></a>
+        <Link key={category.name} to={"/"+category.path}><h3>{category.name}</h3></Link>
       )
     })
 
     return (
       <div className="nav-side">
-        <a href="/"><h3>All</h3></a>
+        <Link to="/"><h3>All</h3></Link>
         {categoryList}
       </div>
     );

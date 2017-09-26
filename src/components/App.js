@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 import { fetchPosts } from '../actions';
 import Header from './header';
@@ -22,7 +23,14 @@ class App extends Component {
         <div className="app-container">
           <NavSide />
           <div className="app-contnent">
-            <Posts posts={posts} />
+            <Switch>
+              <Route exact path="/" render={ () => (
+                <Posts posts={posts} />
+              )} />
+              <Route exact path="/react" render={ () => (
+                <h3>React Posts</h3>
+              )} />
+            </Switch>
           </div>
         </div>
       </div>
