@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from "react-redux";
-import { fetchPosts } from '../actions';
+import { fetchPosts, fetchCategories } from '../actions';
 import Header from './header';
 import NavSide from './navside';
 import Posts from './posts';
@@ -9,27 +9,30 @@ import Posts from './posts';
 class App extends Component {
 
   componentWillMount() {
-    const { fetchAllPosts } = this.props;
+    const { fetchAllPosts, fetchAllCategories } = this.props;
 
     fetchAllPosts();
+    fetchAllCategories();
   }
 
   render() {
-    const { posts } = this.props;
+    const { posts, categories } = this.props;
 
     return (
       <BrowserRouter>
       <div className="App">
         <Header />
         <div className="app-container">
-          <NavSide />
+          <NavSide categories={categories} />
           <div className="app-contnent">
             <Route exact path="/" render={ () => (
               <Posts posts={posts} />
             )} />
-            <Route path="/react" render={ () => (
-              <h3>React Posts</h3>
-            )} />
+            {categories.map( (category) => (
+              <Route key={category.name} path={"/"+category.path} render={ () => (
+                <Posts posts={ posts.filter((post) => (post.category === category.name)) } />
+              )} />
+            ))}
           </div>
         </div>
       </div>
@@ -40,13 +43,15 @@ class App extends Component {
 
 function mapStateToProps (state, ownProps) {
   return ({
-    posts: state.postStore.posts
+    posts: state.postStore.posts,
+    categories: state.categoryStore.categories
   })
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchAllPosts: () => dispatch(fetchPosts())
+    fetchAllPosts: () => dispatch(fetchPosts()),
+    fetchAllCategories: () => dispatch(fetchCategories())
   }
 }
 

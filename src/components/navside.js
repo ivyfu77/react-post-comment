@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
-import { fetchCategories } from '../actions';
 
 class NavSide extends Component {
-
-  componentWillMount() {
-    const { fetchAllCategories } = this.props;
-
-    fetchAllCategories();
-  }
 
   render() {
     const { categories } = this.props;
@@ -29,16 +21,4 @@ class NavSide extends Component {
   }
 }
 
-function mapStateToProps (state, ownProps) {
-  return ({
-    categories: state.categoryStore.categories
-  })
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchAllCategories: () => dispatch(fetchCategories())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavSide);
+export default NavSide;
