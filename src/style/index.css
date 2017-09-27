@@ -73,11 +73,49 @@ body {
   margin-right: 30px;
 }
 .post-item {
-  border: 1px solid grey;
+  border-left: 6px solid powderblue;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
   margin-top: 20px;
   padding: 10px;
 }
 h2.posts-title {
   border-bottom: 1px solid #dad9d9;
   height: 60px;
+}
+.post-item-first-line {
+  display: flex;
+  align-items: center;
+}
+.post-item-first-line p {
+  width: 100px;
+  font-size: 0.8em;
+  color: darkseagreen;
+}
+.post-item-first-line .vote-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4ab0bd;
+  font-size: 0.8em;
+  margin-right: 20px;
+}
+.post-item-first-line .vote-score span {
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 15px;
+  border: 2px solid #bfbfbf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.post-item .fa:hover {
+  cursor: pointer;
+}
+.comment-number {
+  color: darkseagreen;
+  font-weight: 100;
+  font-size: 0.8em;
 }
