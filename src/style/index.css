@@ -73,11 +73,26 @@ body {
   margin-right: 30px;
 }
 .post-item {
+  display: flex;
+  align-items: center;
   border-left: 6px solid powderblue;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   margin-top: 20px;
   padding: 10px;
+}
+.post-item-content {
+  width: 60%;
+}
+.post-item-action {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: darksalmon;
+}
+.post-item-action .fa {
+  margin: auto 15px;
 }
 h2.posts-title {
   border-bottom: 1px solid #dad9d9;
@@ -118,4 +133,19 @@ h2.posts-title {
   color: darkseagreen;
   font-weight: 100;
   font-size: 0.8em;
+}
+.post-item-bottom {
+  font-size: 0.7em;
+  font-weight: 300;
+  margin-top: 5px;
+}
+.post-item-bottom .post-author {
+  font-style: italic;
+}
+.post-item-bottom .post-category {
+  border: 1px solid #bbd8d8;
+  margin-left: 20px;
+  color: darkcyan;
+  padding: 1px 2px;
+  background-color: aliceblue;
 }
