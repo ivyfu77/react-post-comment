@@ -81,6 +81,11 @@ body {
   margin-top: 20px;
   padding: 10px;
 }
+.post-item h4 {
+  color: #6f6f6f;
+  font-weight: 500;
+  margin: 8px auto 15px;
+}
 .post-item-content {
   width: 60%;
 }
@@ -97,6 +102,7 @@ body {
 h2.posts-title {
   border-bottom: 1px solid #dad9d9;
   height: 60px;
+  color: #616060;
 }
 .post-item-first-line {
   display: flex;
