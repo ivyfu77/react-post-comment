@@ -5,6 +5,7 @@ import { fetchPosts, fetchCategories } from '../actions';
 import Header from './header';
 import NavSide from './navside';
 import Posts from './posts';
+import { generateUuid } from '../utils/lib';
 
 class App extends Component {
 
@@ -13,6 +14,8 @@ class App extends Component {
 
     fetchAllPosts();
     fetchAllCategories();
+
+    console.log(generateUuid());
   }
 
   render() {

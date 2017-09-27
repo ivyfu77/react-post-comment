@@ -56,3 +56,28 @@ body {
   width: calc(100% - 220px);
   padding: 10px;
 }
+
+/* Posts List */
+.post-pin {
+  color: grey;
+  font-size: xx-large;
+  transform: rotate(35deg);
+}
+.post-add-icon {
+  color: grey;
+  font-size: x-large;
+  font-weight: 400;
+}
+.posts-title span {
+  margin-left: 20px;
+  margin-right: 30px;
+}
+.post-item {
+  border: 1px solid grey;
+  margin-top: 20px;
+  padding: 10px;
+}
+h2.posts-title {
+  border-bottom: 1px solid #dad9d9;
+  height: 60px;
+}
